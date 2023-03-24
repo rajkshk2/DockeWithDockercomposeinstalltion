@@ -1,0 +1,44 @@
+To install Docker with Docker Compose on Ubuntu 18.04, you can follow these steps:
+
+Update the package list on your Ubuntu system using the following command:
+sql
+Copy code
+sudo apt-get update
+Install the dependencies required to add a new repository over HTTPS:
+arduino
+Copy code
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+Add Docker’s official GPG key:
+arduino
+Copy code
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+Add the Docker repository to APT sources:
+bash
+Copy code
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+Update the package list again, now with the Docker repository:
+sql
+Copy code
+sudo apt-get update
+Install the latest version of Docker:
+arduino
+Copy code
+sudo apt-get install docker-ce
+Add your user to the docker group so you can use Docker without sudo:
+bash
+Copy code
+sudo usermod -aG docker ${USER}
+Install Docker Compose using the following command:
+bash
+Copy code
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+Apply executable permissions to the binary:
+bash
+Copy code
+sudo chmod +x /usr/local/bin/docker-compose
+Verify that Docker and Docker Compose are installed correctly:
+css
+Copy code
+docker --version
+docker-compose --version
+That's it! You have successfully installed Docker and Docker Compose on Ubuntu 18.04.
